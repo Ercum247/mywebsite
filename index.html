@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TMYfood — Aegean Olive Oil, Imported for U.S. Foodservice</title>
+<meta name="description" content="TMYfood imports extra virgin olive oil from Turkey's Aegean coast and sells it wholesale, by the case, to restaurants, markets, and grocers across the United States.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15241F;
+    --ink-soft:#1C2E27;
+    --ink-line: rgba(243,240,230,0.16);
+    --aegean:#2C7A8C;
+    --aegean-deep:#1F5C6B;
+    --gold:#C89B3C;
+    --gold-soft:#E3C173;
+    --olive:#7C8B4A;
+    --paper:#F3F0E6;
+    --paper-dim:#E9E3D2;
+    --cream-text:#EDEAE0;
+    --body-text:#332F26;
+    --body-text-soft:#5C5746;
+    --wrap: 1180px;
+    --radius: 2px;
+    --fs-h1: clamp(2.4rem, 1.2rem + 4.6vw, 4.6rem);
+    --fs-h2: clamp(1.9rem, 1.2rem + 2.4vw, 3rem);
+    --fs-h3: clamp(1.2rem, 1rem + 0.6vw, 1.5rem);
+    --fs-lead: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--body-text);
+    font-family:'Public Sans', system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:500;
+    line-height:1.08;
+    margin:0 0 0.5em 0;
+    letter-spacing:-0.01em;
+  }
+  h1 em, h2 em{font-style:italic; font-weight:400;}
+
+  .wrap{
+    max-width:var(--wrap);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  .section{padding:104px 0;}
+  @media (max-width:720px){ .section{padding:72px 0;} }
+
+  .bg-ink{background:var(--ink); color:var(--cream-text);}
+  .bg-paper{background:var(--paper); color:var(--body-text);}
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.74rem;
+    font-weight:600;
+    color:var(--gold-soft);
+    margin:0 0 18px 0;
+  }
+  .eyebrow-dark{color:var(--aegean-deep);}
+
+  .section-lead{
+    font-size:var(--fs-lead);
+    max-width:640px;
+    color:var(--body-text-soft);
+  }
+  .bg-ink .section-lead{color:rgba(237,234,224,0.78);}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    font-family:'Public Sans', sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    text-decoration:none;
+    border-radius:var(--radius);
+    border:1.5px solid transparent;
+    cursor:pointer;
+    transition:transform 160ms ease, background 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+  .btn-gold{background:var(--gold); color:var(--ink);}
+  .btn-gold:hover{background:var(--gold-soft);}
+  .btn-outline{border-color:rgba(237,234,224,0.5); color:var(--cream-text);}
+  .btn-outline:hover{border-color:var(--cream-text); background:rgba(237,234,224,0.06);}
+  .btn-line{border-color:var(--aegean-deep); color:var(--aegean-deep);}
+  .btn-line:hover{background:var(--aegean-deep); color:var(--paper);}
+
+  /* Header */
+  .site-header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(21,36,31,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--ink-line);
+  }
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    text-decoration:none; color:var(--cream-text);
+    font-family:'Fraunces', serif; font-size:1.35rem; font-weight:600;
+  }
+  .brand em{font-style:italic; font-weight:400; color:var(--gold-soft);}
+  .brand svg{flex:none;}
+
+  .nav{display:flex; align-items:center; gap:30px;}
+  .nav a{
+    text-decoration:none; color:rgba(237,234,224,0.86);
+    font-size:0.93rem; font-weight:500;
+    transition:color 140ms ease;
+  }
+  .nav a:hover{color:var(--gold-soft);}
+  .nav a.nav-cta{
+    background:var(--gold); color:var(--ink);
+    padding:10px 18px; border-radius:var(--radius); font-weight:700;
+  }
+  .nav a.nav-cta:hover{background:var(--gold-soft); color:var(--ink);}
+
+  .nav-toggle{
+    display:none; background:none; border:none; cursor:pointer;
+    width:34px; height:34px; position:relative;
+  }
+  .nav-toggle span, .nav-toggle::before, .nav-toggle::after{
+    content:""; position:absolute; left:6px; right:6px; height:2px; background:var(--cream-text);
+    transition:transform 200ms ease, opacity 200ms ease;
+  }
+  .nav-toggle::before{top:11px;}
+  .nav-toggle span{top:17px;}
+  .nav-toggle::after{top:23px;}
+  .nav-toggle[aria-expanded="true"]::before{transform:translateY(6px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"]::after{transform:translateY(-6px) rotate(-45deg);}
+  .nav-toggle[aria-expanded="true"] span{opacity:0;}
+
+  @media (max-width:880px){
+    .nav-toggle{display:block;}
+    .nav{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--ink-soft);
+      flex-direction:column; align-items:flex-start;
+      padding:10px 28px 26px;
+      gap:18px;
+      border-bottom:1px solid var(--ink-line);
+      display:none;
+    }
+    .nav.is-open{display:flex;}
+    .nav a.nav-cta{width:100%; text-align:center;}
+  }
+
+  /* Hero */
+  .hero{position:relative; isolation:isolate; overflow:hidden;}
+  .hero-bg{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; z-index:-2;
+  }
+  .hero-scrim{
+    position:absolute; inset:0; z-index:-1;
+    background:
+      linear-gradient(180deg, rgba(21,36,31,0.78) 0%, rgba(21,36,31,0.55) 45%, rgba(21,36,31,0.92) 100%);
+  }
+  .hero-inner{
+    padding:150px 28px 110px;
+    max-width:820px;
+  }
+  .hero h1{color:var(--cream-text);}
+  .hero h1 em{color:var(--gold-soft);}
+  .hero-sub{
+    font-size:var(--fs-lead);
+    color:rgba(237,234,224,0.85);
+    max-width:560px;
+    margin:22px 0 36px;
+  }
+  .hero-actions{display:flex; flex-wrap:wrap; gap:16px;}
+
+  .hero-strip{
+    border-top:1px solid rgba(237,234,224,0.18);
+    background:rgba(21,36,31,0.55);
+  }
+  .strip-inner{
+    display:flex; flex-wrap:wrap; gap:28px 40px;
+    padding:22px 28px;
+  }
+  .strip-item{
+    display:flex; align-items:center; gap:10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.82rem; letter-spacing:0.04em;
+    color:rgba(237,234,224,0.85);
+    text-transform:uppercase;
+  }
+  .strip-item svg{flex:none; color:var(--gold-soft);}
+
+  /* About */
+  .about-grid{
+    display:grid; grid-template-columns:0.95fr 1.05fr; gap:64px; align-items:center;
+  }
+  .about-media img{
+    border-radius:var(--radius);
+    box-shadow:0 24px 50px -24px rgba(21,36,31,0.45);
+  }
+  .about-copy h2{color:var(--ink);}
+  .about-copy p{color:var(--body-text-soft); margin:0 0 16px;}
+  .checklist{list-style:none; margin:26px 0 0; padding:0; display:grid; gap:14px;}
+  .checklist li{
+    display:flex; gap:12px; align-items:flex-start;
+    font-size:0.96rem; color:var(--body-text);
+  }
+  .checklist svg{flex:none; margin-top:3px; color:var(--aegean-deep);}
+
+  @media (max-width:880px){
+    .about-grid{grid-template-columns:1fr; gap:40px;}
+    .about-media{order:-1;}
+  }
+
+  /* Crate / product section */
+  .crate-section h2{color:var(--cream-text); max-width:680px;}
+  .crate-grid{
+    margin-top:54px;
+    display:grid;
+    grid-template-columns:1fr 1fr 0.8fr;
+    gap:26px;
+    align-items:stretch;
+  }
+  .crate-card{
+    position:relative;
+    background:var(--ink-soft);
+    border:1.5px dashed rgba(237,234,224,0.3);
+    border-radius:var(--radius);
+    padding:34px 30px 30px;
+  }
+  .crate-card h3{color:var(--cream-text); font-size:var(--fs-h3); margin-bottom:22px;}
+  .crate-stamp{
+    position:absolute; top:-18px; right:-10px;
+    width:108px; height:108px;
+    border:1.5px solid var(--gold-soft);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.6rem; letter-spacing:0.06em;
+    color:var(--gold-soft);
+    transform:rotate(8deg);
+    line-height:1.45;
+    padding:8px;
+    background:var(--ink);
+  }
+  .spec-list{margin:0; display:grid; gap:14px;}
+  .spec-list > div{
+    display:flex; justify-content:space-between; gap:18px;
+    border-bottom:1px solid rgba(237,234,224,0.14);
+    padding-bottom:10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.82rem;
+  }
+  .spec-list dt{color:rgba(237,234,224,0.55); text-transform:uppercase; letter-spacing:0.04em;}
+  .spec-list dd{margin:0; color:var(--cream-text); text-align:right; font-weight:500;}
+
+  .crate-photo{
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    min-height:220px;
+    border:6px solid var(--paper);
+    transform:rotate(1.4deg);
+    box-shadow:0 26px 50px -20px rgba(0,0,0,0.55);
+  }
+  .crate-photo img{width:100%; height:100%; object-fit:cover;}
+
+  @media (max-width:980px){
+    .crate-grid{grid-template-columns:1fr 1fr;}
+    .crate-photo{grid-column:1 / -1; transform:none; min-height:200px;}
+  }
+  @media (max-width:620px){
+    .crate-grid{grid-template-columns:1fr;}
+  }
+
+  /* Origin section */
+  .origin-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center;
+  }
+  .origin-copy h2{color:var(--ink);}
+  .origin-copy p{color:var(--body-text-soft); margin:0 0 16px;}
+  .origin-media img{
+    border-radius:var(--radius);
+    box-shadow:0 24px 50px -24px rgba(21,36,31,0.45);
+  }
+  @media (max-width:880px){
+    .origin-grid{grid-template-columns:1fr; gap:40px;}
+  }
+
+  /* Serve section */
+  .serve h2{color:var(--cream-text); max-width:640px;}
+  .serve-grid{
+    margin-top:50px;
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
+  }
+  .serve-card{
+    background:var(--ink-soft);
+    border:1px solid var(--ink-line);
+    border-radius:var(--radius);
+    padding:32px 28px;
+  }
+  .serve-card svg{color:var(--gold-soft); margin-bottom:18px;}
+  .serve-card h3{color:var(--cream-text); margin-bottom:10px;}
+  .serve-card p{color:rgba(237,234,224,0.72); margin:0; font-size:0.95rem;}
+  @media (max-width:880px){
+    .serve-grid{grid-template-columns:1fr;}
+  }
+
+  /* Process */
+  .process-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:start;}
+  .process h2{color:var(--ink); max-width:520px;}
+  .steps{list-style:none; margin:46px 0 0; padding:0; display:grid; gap:34px;}
+  .steps li{display:flex; gap:22px; align-items:flex-start;}
+  .step-num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.85rem; font-weight:700;
+    color:var(--paper);
+    background:var(--aegean-deep);
+    width:42px; height:42px; flex:none;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .steps h3{color:var(--ink); font-size:1.1rem; margin-bottom:6px;}
+  .steps p{margin:0; color:var(--body-text-soft); font-size:0.95rem;}
+  .process-media img{
+    border-radius:var(--radius);
+    box-shadow:0 24px 50px -24px rgba(21,36,31,0.4);
+    position:sticky; top:110px;
+  }
+  @media (max-width:880px){
+    .process-grid{grid-template-columns:1fr;}
+    .process-media{order:-1;}
+    .process-media img{position:static;}
+  }
+
+  /* Contact */
+  .contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:64px;}
+  .contact h2{color:var(--cream-text); max-width:480px;}
+  .contact .section-lead{margin-bottom:36px;}
+  .contact-details{margin:0; display:grid; gap:20px;}
+  .contact-details > div{border-top:1px solid var(--ink-line); padding-top:14px;}
+  .contact-details dt{
+    font-family:'JetBrains Mono', monospace; font-size:0.72rem;
+    text-transform:uppercase; letter-spacing:0.08em; color:rgba(237,234,224,0.55);
+    margin-bottom:6px;
+  }
+  .contact-details dd{margin:0; font-size:1.05rem;}
+  .contact-details a{text-decoration:none; color:var(--gold-soft); border-bottom:1px solid transparent;}
+  .contact-details a:hover{border-bottom-color:var(--gold-soft);}
+
+  .contact-form{
+    background:var(--ink-soft);
+    border:1px solid var(--ink-line);
+    border-radius:var(--radius);
+    padding:36px;
+    display:grid; gap:18px;
+  }
+  .form-row{display:grid; gap:18px; grid-template-columns:1fr 1fr;}
+  .field{display:flex; flex-direction:column; gap:8px;}
+  .field label{
+    font-family:'JetBrains Mono', monospace; font-size:0.72rem;
+    text-transform:uppercase; letter-spacing:0.06em; color:rgba(237,234,224,0.6);
+  }
+  .field input, .field select, .field textarea{
+    background:var(--ink);
+    border:1px solid var(--ink-line);
+    border-radius:var(--radius);
+    padding:12px 14px;
+    color:var(--cream-text);
+    font-family:'Public Sans', sans-serif;
+    font-size:0.95rem;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none; border-color:var(--gold-soft);
+  }
+  .field textarea{resize:vertical; min-height:90px;}
+  .contact-form .btn{justify-self:start; margin-top:6px;}
+  .form-note{font-size:0.78rem; color:rgba(237,234,224,0.5); margin:0;}
+
+  @media (max-width:880px){
+    .contact-grid{grid-template-columns:1fr; gap:40px;}
+    .form-row{grid-template-columns:1fr;}
+  }
+
+  /* Footer */
+  .site-footer{background:var(--ink); border-top:1px solid var(--ink-line); padding:34px 0;}
+  .footer-inner{
+    display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:14px;
+  }
+  .footer-inner .brand{font-size:1.05rem;}
+  .footer-inner p{margin:0; font-size:0.82rem; color:rgba(237,234,224,0.5);}
+
+  /* Reveal animation */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity 700ms ease, transform 700ms ease;}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+</style>
+
+<meta property="og:title" content="TMYfood | Aegean Olive Oil for U.S. Foodservice">
+<meta property="og:description" content="Wholesale extra virgin olive oil imported from Türkiye for restaurants, grocers and distributors.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="brand">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M13 23C13 23 6 19 6 12.5C6 7.5 9.5 4 13 4" stroke="#C89B3C" stroke-width="1.4" stroke-linecap="round"/>
+        <ellipse cx="9.3" cy="9.8" rx="2.1" ry="3.1" transform="rotate(-30 9.3 9.8)" fill="#7C8B4A"/>
+        <ellipse cx="13.6" cy="6.4" rx="2.1" ry="3.1" transform="rotate(-12 13.6 6.4)" fill="#7C8B4A"/>
+        <circle cx="13" cy="22" r="2" fill="#C89B3C"/>
+      </svg>
+      <span class="brand-name">TMY<em>food</em></span>
+    </a>
+    <nav class="nav" id="siteNav">
+      <a href="#product">Case &amp; Specs</a>
+      <a href="#about">Our Groves</a>
+      <a href="#serve">Who We Serve</a>
+      <a href="#process">How It Works</a>
+      <a href="#contact" class="nav-cta">Request Pricing</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="siteNav"><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <img class="hero-bg" fetchpriority="high" src="https://images.unsplash.com/photo-1569660073216-1a6762baad6a?q=80&amp;w=1920&amp;auto=format&amp;fit=crop" alt="Aerial view of the turquoise Aegean coastline near Fethiye, Turkey">
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Imported From Türkiye &middot; Sold To U.S. Foodservice &amp; Retail</p>
+    <h1>Cold-pressed on the<br>Aegean coast. <em>Delivered<br>by the pallet.</em></h1>
+    <p class="hero-sub">TMYfood brings extra virgin olive oil straight from Turkey's Aegean groves to American kitchens, shelves, and walk-ins — packed in the case sizes your business actually orders.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-gold">Request Wholesale Pricing</a>
+      <a href="#product" class="btn btn-outline">See Case Specs</a>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div class="wrap strip-inner">
+      <span class="strip-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M12 2C8 6 8 10 12 13s4 7 0 9"/></svg>
+        Direct from Aegean groves
+      </span>
+      <span class="strip-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Cold, first press
+      </span>
+      <span class="strip-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4Zm0 0v10l9 4 9-4V7M12 11v10"/></svg>
+        Packed for foodservice
+      </span>
+    </div>
+  </div>
+</section>
+
+<section class="section about reveal" id="about">
+  <div class="wrap about-grid">
+    <div class="about-media">
+      <img src="https://images.unsplash.com/photo-1662591545703-551e583d4190?q=80&amp;w=1100&amp;auto=format&amp;fit=crop" loading="lazy" decoding="async" alt="Olive grove on Turkey's Aegean coast near Antalya">
+    </div>
+    <div class="about-copy">
+      <p class="eyebrow eyebrow-dark">Our Groves</p>
+      <h2>From the grove to your walk-in, with nothing in between.</h2>
+      <p>TMYfood works directly with growers along Turkey's Aegean coast — the same groves that have supplied olive oil to the region for generations. The olives are cold-pressed close to harvest, then shipped straight to the U.S. for distribution, without passing through a chain of resellers.</p>
+      <p>By sourcing directly from growers and minimizing intermediary handling, we maintain freshness, traceability, and supply consistency from harvest to delivery.</p>
+      <ul class="checklist">
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg>
+          Harvested and cold-pressed close to picking
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg>
+          Shipped directly — no resale middlemen
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg>
+          Tested and labeled to U.S. import standards
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section crate-section bg-ink reveal" id="product">
+  <div class="wrap">
+    <p class="eyebrow">The Case, Explained</p>
+    <h2>Built for kitchens that go through a case a week, not a bottle a month.</h2>
+    <p class="section-lead">No bottle-by-bottle pricing, no consumer packaging you have to break down in the back. Just gallon jugs, packed four to a case, ready for the line or the shelf.</p>
+
+    <div class="crate-grid">
+      <div class="crate-card">
+        <div class="crate-stamp">ORIGIN<br>AEGEAN COAST<br>TÜRKİYE</div>
+        <h3>Standard Case</h3>
+        <dl class="spec-list">
+          <div><dt>Contents</dt><dd>4 &times; 1 Gallon Jugs</dd></div>
+          <div><dt>Volume / Jug</dt><dd>3.785 L</dd></div>
+          <div><dt>Type</dt><dd>Extra Virgin Olive Oil</dd></div>
+          <div><dt>Press</dt><dd>Cold, First Press</dd></div>
+          <div><dt>Net Wt / Case</dt><dd>&asymp; 29 lb</dd></div>
+        </dl>
+      </div>
+
+      <div class="crate-card">
+        <h3>Typical First Order</h3>
+        <dl class="spec-list">
+          <div><dt>Restaurants</dt><dd>4&ndash;5 cases / location</dd></div>
+          <div><dt>Markets &amp; Grocers</dt><dd>By pallet, custom count</dd></div>
+          <div><dt>Reorder</dt><dd>Standing schedule or on call</dd></div>
+          <div><dt>Lead Time</dt><dd>Ask for current estimate</dd></div>
+        </dl>
+      </div>
+
+      <div class="crate-photo">
+        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&amp;w=800&amp;auto=format&amp;fit=crop" loading="lazy" decoding="async" alt="Bottle of extra virgin olive oil">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section origin reveal" id="origin">
+  <div class="wrap origin-grid">
+    <div class="origin-copy">
+      <p class="eyebrow eyebrow-dark">Why The Aegean Coast</p>
+      <h2>Sun, salt air, and centuries of practice.</h2>
+      <p>The hills along Turkey's Aegean coast have grown olives for thousands of years. Long, dry summers and mineral-rich coastal soil produce fruit with a distinct character — grassy, slightly peppery, balanced rather than sharp.</p>
+      <p>It's the same coastline that shapes the region's wine, its herbs, and its cooking. Buyers who already know Mediterranean oils tend to recognize it immediately; professional kitchens and specialty retailers value for its balanced flavor profile and dependable consistency.</p>
+      <a href="#contact" class="btn btn-line">Request a Sample Case</a>
+    </div>
+    <div class="origin-media">
+      <img src="https://images.unsplash.com/photo-1587996735085-1eba19480192?q=80&amp;w=1100&amp;auto=format&amp;fit=crop" loading="lazy" decoding="async" alt="Green hills meeting the turquoise Aegean Sea on Turkey's coast">
+    </div>
+  </div>
+</section>
+
+<section class="section serve bg-ink reveal" id="serve">
+  <div class="wrap">
+    <p class="eyebrow">Who We Serve</p>
+    <h2>Built for buyers who order by the case, not the bottle.</h2>
+    <div class="serve-grid">
+      <div class="serve-card">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2v8a2 2 0 002 2v10M6 2a2 2 0 00-2 2v6a2 2 0 002 2M6 2a2 2 0 012 2v6a2 2 0 01-2 2m12-10v20m0-20a3 3 0 013 3v6a3 3 0 01-3 3"/></svg>
+        <h3>Restaurants</h3>
+        <p>Consistent, kitchen-ready jugs sized for prep, frying, and finishing — without the case minimums that don't make sense for a single location.</p>
+      </div>
+      <div class="serve-card">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l1-5h16l1 5M3 9v10a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18M9 13a3 3 0 006 0"/></svg>
+        <h3>Markets &amp; Grocers</h3>
+        <p>Shelf-ready gallon jugs at pallet pricing, with consistent supply for stores that want a true wholesale import on the shelf, not a marked-up reseller brand.</p>
+      </div>
+      <div class="serve-card">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 16V6a1 1 0 011-1h9a1 1 0 011 1v10M3 16h11M3 16H1m13 0h7m0 0a2 2 0 11-4 0 2 2 0 014 0zM5 18a2 2 0 11-4 0 2 2 0 014 0zM14 9h4l3 4v3h-7V9z"/></svg>
+        <h3>Distributors</h3>
+        <p>Pallet and container volume for partners looking to add a direct-from-Türkiye extra virgin olive oil to an existing foodservice or grocery line.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section process reveal" id="process">
+  <div class="wrap process-grid">
+    <div>
+      <p class="eyebrow eyebrow-dark">How It Works</p>
+      <h2>Four steps from inquiry to standing order.</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-num">01</span>
+          <div>
+            <h3>Inquire</h3>
+            <p>Tell us a bit about your business and roughly how much olive oil you go through in a month.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">02</span>
+          <div>
+            <h3>Sample</h3>
+            <p>We get a sample to your kitchen or store so you can taste it and confirm it's the right fit before committing.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">03</span>
+          <div>
+            <h3>First Order</h3>
+            <p>Place your initial order — most restaurants start with 4&ndash;5 cases; markets typically start by the pallet.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">04</span>
+          <div>
+            <h3>Standing Delivery</h3>
+            <p>Set a recurring schedule so your supply stays consistent and the walk-in never runs dry.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+    <div class="process-media">
+      <img src="https://images.unsplash.com/photo-1758641283518-59ade23743ae?q=80&amp;w=900&amp;auto=format&amp;fit=crop" loading="lazy" decoding="async" alt="Close-up of a branch with fresh green olives">
+    </div>
+  </div>
+</section>
+
+<section class="section contact bg-ink reveal" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Get In Touch</p>
+      <h2>Ready to put TMYfood on the line — or the shelf?</h2>
+      <p class="section-lead">Tell us about your business and we'll follow up with current wholesale pricing, case minimums, and lead times.</p>
+      <dl class="contact-details">
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:wholesale@tmyfood.com">wholesale@tmyfood.com</a></dd>
+        </div>
+        <div>
+          <dt>Phone</dt>
+          <dd><a href="tel:+10000000000">+1 (000) 000-0000</a></dd>
+        </div>
+        <div>
+          <dt>Based In</dt>
+          <dd>United States &middot; Importing from T&uuml;rkiye</dd>
+        </div>
+      </dl>
+    </div>
+
+    <form class="contact-form" action="https://formspree.io/f/mojoajjk" method="POST">
+      <input type="hidden" name="_subject" value="New Wholesale Pricing Request">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="business">Business Name</label>
+          <input type="text" id="business" name="business" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="type">Business Type</label>
+          <select id="type" name="type">
+            <option>Restaurant</option>
+            <option>Market / Grocer</option>
+            <option>Distributor</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="volume">Estimated Monthly Volume</label>
+        <input type="text" id="volume" name="volume" placeholder="e.g. 4–5 cases per month">
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us a bit about your business"></textarea>
+      </div>
+      <button type="submit" class="btn btn-gold">Request Wholesale Pricing</button>
+      <p class="form-note">Submitting opens your email client with this information pre-filled, addressed to TMYfood.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span class="brand">TMY<em>food</em></span>
+    <p>&copy; 2026 TMYfood. Extra virgin olive oil imported from T&uuml;rkiye for U.S. foodservice &amp; retail.</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const siteNav = document.getElementById('siteNav');
+  navToggle.addEventListener('click', () => {
+    const open = siteNav.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  siteNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      siteNav.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scroll reveal
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+  }
+</script>
+
+</body>
+</html>
