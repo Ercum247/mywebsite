@@ -423,6 +423,12 @@
   .reveal{opacity:0; transform:translateY(18px); transition:opacity 700ms ease, transform 700ms ease;}
   .reveal.is-visible{opacity:1; transform:translateY(0);}
 </style>
+
+<meta property="og:title" content="TMYfood | Aegean Olive Oil for U.S. Foodservice">
+<meta property="og:description" content="Wholesale extra virgin olive oil imported from Türkiye for restaurants, grocers and distributors.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
 </head>
 <body>
 
@@ -449,7 +455,7 @@
 </header>
 
 <section class="hero" id="top">
-  <img class="hero-bg" src="https://images.unsplash.com/photo-1569660073216-1a6762baad6a?q=80&amp;w=1920&amp;auto=format&amp;fit=crop" alt="Aerial view of the turquoise Aegean coastline near Fethiye, Turkey">
+  <img class="hero-bg" fetchpriority="high" src="https://images.unsplash.com/photo-1569660073216-1a6762baad6a?q=80&amp;w=1920&amp;auto=format&amp;fit=crop" alt="Aerial view of the turquoise Aegean coastline near Fethiye, Turkey">
   <div class="hero-scrim"></div>
   <div class="wrap hero-inner">
     <p class="eyebrow">Imported From Türkiye &middot; Sold To U.S. Foodservice &amp; Retail</p>
@@ -481,13 +487,13 @@
 <section class="section about reveal" id="about">
   <div class="wrap about-grid">
     <div class="about-media">
-      <img src="https://images.unsplash.com/photo-1662591545703-551e583d4190?q=80&amp;w=1100&amp;auto=format&amp;fit=crop" alt="Olive grove on Turkey's Aegean coast near Antalya">
+      <img src="https://images.unsplash.com/photo-1662591545703-551e583d4190?q=80&amp;w=1100&amp;auto=format&amp;fit=crop" loading="lazy" decoding="async" alt="Olive grove on Turkey's Aegean coast near Antalya">
     </div>
     <div class="about-copy">
       <p class="eyebrow eyebrow-dark">Our Groves</p>
       <h2>From the grove to your walk-in, with nothing in between.</h2>
       <p>TMYfood works directly with growers along Turkey's Aegean coast — the same groves that have supplied olive oil to the region for generations. The olives are cold-pressed close to harvest, then shipped straight to the U.S. for distribution, without passing through a chain of resellers.</p>
-      <p>That means the oil on your line is closer to the press than most domestic options, and the price reflects a direct relationship instead of three middlemen.</p>
+      <p>By sourcing directly from growers and minimizing intermediary handling, we maintain freshness, traceability, and supply consistency from harvest to delivery.</p>
       <ul class="checklist">
         <li>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6"/></svg>
@@ -536,7 +542,7 @@
       </div>
 
       <div class="crate-photo">
-        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="Bottle of extra virgin olive oil">
+        <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&amp;w=800&amp;auto=format&amp;fit=crop" loading="lazy" decoding="async" alt="Bottle of extra virgin olive oil">
       </div>
     </div>
   </div>
@@ -548,11 +554,11 @@
       <p class="eyebrow eyebrow-dark">Why The Aegean Coast</p>
       <h2>Sun, salt air, and centuries of practice.</h2>
       <p>The hills along Turkey's Aegean coast have grown olives for thousands of years. Long, dry summers and mineral-rich coastal soil produce fruit with a distinct character — grassy, slightly peppery, balanced rather than sharp.</p>
-      <p>It's the same coastline that shapes the region's wine, its herbs, and its cooking. Buyers who already know Mediterranean oils tend to recognize it immediately; buyers who don't usually ask for the name again before they finish tasting it.</p>
+      <p>It's the same coastline that shapes the region's wine, its herbs, and its cooking. Buyers who already know Mediterranean oils tend to recognize it immediately; professional kitchens and specialty retailers value for its balanced flavor profile and dependable consistency.</p>
       <a href="#contact" class="btn btn-line">Request a Sample Case</a>
     </div>
     <div class="origin-media">
-      <img src="https://images.unsplash.com/photo-1587996735085-1eba19480192?q=80&amp;w=1100&amp;auto=format&amp;fit=crop" alt="Green hills meeting the turquoise Aegean Sea on Turkey's coast">
+      <img src="https://images.unsplash.com/photo-1587996735085-1eba19480192?q=80&amp;w=1100&amp;auto=format&amp;fit=crop" loading="lazy" decoding="async" alt="Green hills meeting the turquoise Aegean Sea on Turkey's coast">
     </div>
   </div>
 </section>
@@ -618,7 +624,7 @@
       </ol>
     </div>
     <div class="process-media">
-      <img src="https://images.unsplash.com/photo-1758641283518-59ade23743ae?q=80&amp;w=900&amp;auto=format&amp;fit=crop" alt="Close-up of a branch with fresh green olives">
+      <img src="https://images.unsplash.com/photo-1758641283518-59ade23743ae?q=80&amp;w=900&amp;auto=format&amp;fit=crop" loading="lazy" decoding="async" alt="Close-up of a branch with fresh green olives">
     </div>
   </div>
 </section>
@@ -645,7 +651,8 @@
       </dl>
     </div>
 
-    <form class="contact-form" id="contactForm">
+    <form class="contact-form" action="https://formspree.io/f/mojoajjk" method="POST">
+      <input type="hidden" name="_subject" value="New Wholesale Pricing Request">
       <div class="form-row">
         <div class="field">
           <label for="name">Your Name</label>
@@ -721,29 +728,6 @@
   } else {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
   }
-
-  // Contact form -> mailto
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const business = document.getElementById('business').value;
-    const email = document.getElementById('email').value;
-    const type = document.getElementById('type').value;
-    const volume = document.getElementById('volume').value;
-    const message = document.getElementById('message').value;
-
-    const subject = encodeURIComponent('Wholesale Pricing Request — ' + business);
-    const body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Business: ' + business + '\n' +
-      'Email: ' + email + '\n' +
-      'Business Type: ' + type + '\n' +
-      'Estimated Monthly Volume: ' + volume + '\n\n' +
-      'Message:\n' + message
-    );
-    window.location.href = 'mailto:wholesale@tmyfood.com?subject=' + subject + '&body=' + body;
-  });
 </script>
 
 </body>
